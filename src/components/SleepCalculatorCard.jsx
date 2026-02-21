@@ -58,10 +58,12 @@ export default function SleepCalculatorCard({
         )}
 
         <div className="flex flex-wrap gap-2 pt-1">
-          <Button variant="outline" className={classes.outlineBtn} onClick={resetToNow}>
+        {mode === "wake" && (
+            <Button variant="outline" className={classes.outlineBtn} onClick={resetToNow}>
             <RotateCcw className="mr-2 h-4 w-4" />
             Reset to now
-          </Button>
+            </Button>
+        )}
         </div>
       </CardContent>
     </Card>
