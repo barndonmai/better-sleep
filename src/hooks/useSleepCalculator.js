@@ -5,19 +5,31 @@ import { getSleepTimesFromWake, getWakeTimesFromNow } from "@/lib/sleep";
 export function useSleepCalculator() {
     const [wakeTime, setWakeTime] = useState(getNowTimeString());
     const [mode, setMode] = useState("sleep");
+    const [hasCalculated, setHasCalculated] = useState(false);
+
     const bedTimes = useMemo(() => getSleepTimesFromWake(wakeTime), [wakeTime]);
-    const wakeTimes = useMemo(() => getWakeTimesFromNow(), [mode]);
+    const wakeTimes = useMemo(() => getWakeTimesFromNow(), [hasCalculated, mode]);
 
     const subtitle =
         mode === "wake"
-            ? "Pick when you want to wake up and get suggested bedtimes based on 90-minute sleep cycles."
-            : "If you go to sleep now, these are good times to wake up (includes ~14 minutes to fall asleep).";
+            ? "Pick a wake-up time and get suggested bedtimes based on 90-minute sleep cycles."
+            : "Tap Sleep now to see ideal wake-up times (includes ~14 minutes to fall asleep).";
 
     const results = mode === "wake" ? bedTimes : wakeTimes;
 
-    const resetToNow = () => {
-        setWakeTime(getNowTimeString());
+    const calculateSleepNow = () => {
         setMode("sleep");
+        setHasCalculated(true);
+    };
+
+    const calculateFromWakeTime = () => {
+        setMode("wake");
+        setHasCalculated(true);
+    };
+
+    const resetCalculator = () => {
+        setWakeTime(getNowTimeString());
+        setHasCalculated(false);
     };
 
     return {
@@ -27,6 +39,9 @@ export function useSleepCalculator() {
         setMode,
         subtitle,
         results,
-        resetToNow,
+        hasCalculated,
+        calculateSleepNow,
+        calculateFromWakeTime,
+        resetCalculator,
     };
 }
