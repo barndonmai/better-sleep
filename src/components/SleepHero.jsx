@@ -32,7 +32,11 @@ function to24Hour(hour12, minute, meridiem) {
 
 function TimeSelect({ value, onChange, options, className }) {
   return (
-    <select value={value} onChange={(e) => onChange(e.target.value)} className={className}>
+    <select
+      value={value}
+      onChange={(e) => onChange(e.target.value)}
+      className={className}
+    >
       {options.map((option) => (
         <option key={option} value={option} className="text-black">
           {option}

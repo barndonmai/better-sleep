@@ -17,7 +17,13 @@ function formatWakeTimeLabel(wakeTime) {
   return `${hour12}:${minute} ${suffix}`;
 }
 
-export default function SleepResultsCard({ classes, mode, results, darkMode, wakeTime }) {
+export default function SleepResultsCard({
+  classes,
+  mode,
+  results,
+  darkMode,
+  wakeTime,
+}) {
   const sleepNowLabel = new Date().toLocaleTimeString([], {
     hour: "numeric",
     minute: "2-digit",
