@@ -6,9 +6,8 @@ export function useTheme(defaultDark = true) {
     const classes = useMemo(() => {
         return {
             page: darkMode
-                ? "min-h-screen bg-gradient-to-b from-zinc-950 via-zinc-900 to-black p-4 text-zinc-100 md:p-8"
+                ? "relative min-h-screen overflow-hidden bg-gradient-to-b from-indigo-950 via-slate-950 to-zinc-950 p-4 text-zinc-100 md:p-8"
                 : "min-h-screen bg-gradient-to-b from-zinc-100 to-white p-4 md:p-8",
-
             pill: darkMode
                 ? "mb-2 inline-flex items-center gap-2 rounded-full border border-zinc-700 bg-zinc-900/80 px-3 py-1 text-sm shadow-sm"
                 : "mb-2 inline-flex items-center gap-2 rounded-full border bg-white px-3 py-1 text-sm shadow-sm",
@@ -16,12 +15,25 @@ export function useTheme(defaultDark = true) {
             subtitle: darkMode ? "mt-2 max-w-2xl text-zinc-300" : "mt-2 max-w-2xl text-zinc-600",
 
             card: darkMode
-                ? "rounded-2xl border-zinc-800 bg-zinc-900/80 text-zinc-100 shadow-sm"
+                ? "rounded-2xl border-indigo-200/10 bg-zinc-900/60 text-zinc-100 shadow-xl shadow-black/20 backdrop-blur"
                 : "rounded-2xl border-zinc-200 shadow-sm",
-
             toggleWrap: darkMode
-                ? "grid grid-cols-2 gap-2 rounded-xl bg-zinc-800 p-1"
+                ? "grid grid-cols-2 gap-2 rounded-xl bg-zinc-800/80 p-1"
                 : "grid grid-cols-2 gap-2 rounded-xl bg-zinc-100 p-1",
+
+            activeToggleBtn: darkMode ? "bg-indigo-400/20 text-indigo-100 shadow-sm" : "bg-white shadow-sm",
+            label: darkMode ? "text-sm font-medium text-indigo-100/90" : "text-sm font-medium text-zinc-700",
+            input: darkMode
+                ? "h-11 rounded-xl border-indigo-200/10 bg-zinc-900/70 text-zinc-100"
+                : "h-11 rounded-xl",
+
+            infoBox: darkMode
+                ? "rounded-xl border border-indigo-200/10 bg-zinc-900/60 p-3 text-sm text-zinc-300"
+                : "rounded-xl border bg-zinc-50 p-3 text-sm text-zinc-600",
+
+            outlineBtn: darkMode
+                ? "rounded-xl border-indigo-200/10 bg-zinc-900/70 text-zinc-100 hover:bg-zinc-800/90"
+                : "rounded-xl",
 
             activeToggleBtn: darkMode ? "bg-zinc-700 text-white shadow-sm" : "bg-white shadow-sm",
 
