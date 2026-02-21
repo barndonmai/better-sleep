@@ -6,8 +6,9 @@ export function useTheme(defaultDark = true) {
     const classes = useMemo(() => {
         return {
             page: darkMode
-                ? "relative min-h-screen overflow-hidden bg-gradient-to-b from-indigo-950 via-slate-950 to-zinc-950 p-4 text-zinc-100 md:p-8"
+                ? "relative min-h-screen overflow-hidden bg-gradient-to-b from-indigo-400 via-slate-950 to-zinc-950 p-4 text-zinc-100 md:p-8"
                 : "min-h-screen bg-gradient-to-b from-zinc-100 to-white p-4 md:p-8",
+
             pill: darkMode
                 ? "mb-2 inline-flex items-center gap-2 rounded-full border border-zinc-700 bg-zinc-900/80 px-3 py-1 text-sm shadow-sm"
                 : "mb-2 inline-flex items-center gap-2 rounded-full border bg-white px-3 py-1 text-sm shadow-sm",

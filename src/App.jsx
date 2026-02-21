@@ -16,6 +16,7 @@ export default function BetterSleep() {
     subtitle,
     results,
     hasCalculated,
+    resultsRenderKey,
     calculateSleepNow,
     calculateFromWakeTime,
   } = useSleepCalculator();
@@ -24,13 +25,13 @@ export default function BetterSleep() {
     <div className={classes.page}>
       {darkMode && (
         <>
-          <div className="pointer-events-none absolute inset-0 opacity-70">
-            <div className="absolute -top-20 left-[-40px] h-56 w-56 rounded-full bg-indigo-400/20 blur-3xl" />
-            <div className="absolute top-24 right-[-30px] h-64 w-64 rounded-full bg-fuchsia-300/10 blur-3xl" />
-            <div className="absolute bottom-[-40px] left-1/3 h-56 w-56 rounded-full bg-sky-300/10 blur-3xl" />
+          <div className="pointer-events-none absolute inset-0 opacity-65">
+            <div className="absolute top-[12%] left-[-30px] h-44 w-44 rounded-full bg-indigo-400/15 blur-3xl" />
+            <div className="absolute top-[38%] right-[-20px] h-64 w-64 rounded-full bg-fuchsia-300/10 blur-3xl" />
+            <div className="absolute bottom-[8%] left-1/2 h-64 w-64 -translate-x-1/2 rounded-full bg-sky-300/10 blur-3xl" />
           </div>
 
-          <div className="pointer-events-none absolute inset-0 opacity-40 [background-image:radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.14)_1px,transparent_1px),radial-gradient(circle_at_80%_30%,rgba(255,255,255,0.10)_1px,transparent_1px),radial-gradient(circle_at_40%_80%,rgba(255,255,255,0.08)_1px,transparent_1px)] [background-size:140px_140px,180px_180px,220px_220px]" />
+          <div className="pointer-events-none absolute inset-0 opacity-35 [background-image:radial-gradient(circle_at_30%_30%,rgba(255,255,255,0.12)_1px,transparent_1px),radial-gradient(circle_at_75%_45%,rgba(255,255,255,0.08)_1px,transparent_1px),radial-gradient(circle_at_50%_75%,rgba(255,255,255,0.08)_1px,transparent_1px)] [background-size:170px_170px,210px_210px,240px_240px]" />
         </>
       )}
 
@@ -76,6 +77,7 @@ export default function BetterSleep() {
 
         {hasCalculated && (
           <motion.div
+            key={resultsRenderKey}
             id="results"
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}

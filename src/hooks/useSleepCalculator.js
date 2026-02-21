@@ -6,9 +6,13 @@ export function useSleepCalculator() {
     const [wakeTime, setWakeTime] = useState(getNowTimeString());
     const [mode, setMode] = useState("sleep");
     const [hasCalculated, setHasCalculated] = useState(false);
+    const [sleepNowRefreshKey, setSleepNowRefreshKey] = useState(0);
 
     const bedTimes = useMemo(() => getSleepTimesFromWake(wakeTime), [wakeTime]);
-    const wakeTimes = useMemo(() => getWakeTimesFromNow(), [hasCalculated, mode]);
+
+    const wakeTimes = useMemo(() => {
+        return getWakeTimesFromNow();
+    }, [sleepNowRefreshKey]);
 
     const subtitle =
         mode === "wake"
@@ -20,6 +24,7 @@ export function useSleepCalculator() {
     const calculateSleepNow = () => {
         setMode("sleep");
         setHasCalculated(true);
+        setSleepNowRefreshKey((value) => value + 1);
     };
 
     const calculateFromWakeTime = () => {
