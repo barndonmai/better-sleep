@@ -27,21 +27,25 @@ export default function BetterSleep() {
           animate={{ opacity: 1, y: 0 }}
           className="mb-6"
         >
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+        <div>
           <div className={classes.pill}>
             <Moon className="h-4 w-4" />
             Sleep Cycle Calculator
           </div>
 
-          <h1 className="text-2xl font-semibold tracking-tight sm:text-3xl md:text-4xl"> Better Sleep </h1>
+          <h1 className="text-2xl font-semibold tracking-tight sm:text-3xl md:text-4xl">
+            Better Sleep
+          </h1>
           <p className={classes.subtitle}>{subtitle}</p>
+        </div>
 
-          <div className="mt-3">
-            <ThemeToggle
-              darkMode={darkMode}
-              setDarkMode={setDarkMode}
-              className={`w-full sm:w-auto ${classes.outlineBtn}`}
-            />
-          </div>
+        <ThemeToggle
+          darkMode={darkMode}
+          setDarkMode={setDarkMode}
+          className={`w-full sm:w-auto sm:shrink-0 ${classes.outlineBtn}`}
+        />
+      </div>
         </motion.div>
 
         <div className="grid gap-6 md:grid-cols-[1.1fr_1fr]">

@@ -1,4 +1,3 @@
-import { Moon, Sun } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export default function ThemeToggle({ darkMode, setDarkMode, className }) {
@@ -7,9 +6,12 @@ export default function ThemeToggle({ darkMode, setDarkMode, className }) {
       variant="outline"
       className={className}
       onClick={() => setDarkMode((value) => !value)}
+      aria-label={darkMode ? "Switch to light mode" : "Switch to dark mode"}
+      title={darkMode ? "Light mode" : "Dark mode"}
     >
-      {darkMode ? <Sun className="mr-2 h-4 w-4" /> : <Moon className="mr-2 h-4 w-4" />}
-      {darkMode ? "Light mode" : "Dark mode"}
+      <span className="text-base leading-none" aria-hidden="true">
+        {darkMode ? "☀️" : "🌙"}
+      </span>
     </Button>
   );
 }
