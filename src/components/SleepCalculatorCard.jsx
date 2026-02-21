@@ -62,11 +62,6 @@ export default function SleepCalculatorCard({
             <RotateCcw className="mr-2 h-4 w-4" />
             Reset to now
           </Button>
-
-          <Button variant="outline" className={classes.outlineBtn} disabled>
-            <Coffee className="mr-2 h-4 w-4" />
-            Avoid waking mid-cycle
-          </Button>
         </div>
       </CardContent>
     </Card>
