@@ -2,6 +2,7 @@ import { Moon } from "lucide-react";
 import { motion } from "framer-motion";
 import SleepHero from "@/components/SleepHero";
 import SleepResultsCard from "@/components/SleepResultsCard";
+import NightBackground from "@/components/NightBackground";
 import { useTheme } from "@/hooks/useTheme";
 import { useSleepCalculator } from "@/hooks/useSleepCalculator";
 
@@ -22,17 +23,7 @@ export default function BetterSleep() {
 
   return (
     <div className={classes.page}>
-      {darkMode && (
-        <>
-          <div className="pointer-events-none absolute inset-0 opacity-65">
-            <div className="absolute top-[12%] left-[-30px] h-44 w-44 rounded-full bg-indigo-400/15 blur-3xl" />
-            <div className="absolute top-[38%] right-[-20px] h-64 w-64 rounded-full bg-fuchsia-300/10 blur-3xl" />
-            <div className="absolute bottom-[8%] left-1/2 h-64 w-64 -translate-x-1/2 rounded-full bg-sky-300/10 blur-3xl" />
-          </div>
-
-          <div className="pointer-events-none absolute inset-0 opacity-35 [background-image:radial-gradient(circle_at_30%_30%,rgba(255,255,255,0.12)_1px,transparent_1px),radial-gradient(circle_at_75%_45%,rgba(255,255,255,0.08)_1px,transparent_1px),radial-gradient(circle_at_50%_75%,rgba(255,255,255,0.08)_1px,transparent_1px)] [background-size:170px_170px,210px_210px,240px_240px]" />
-        </>
-      )}
+      {darkMode && <NightBackground />}
 
       <div className="relative z-10 mx-auto flex min-h-[calc(100vh-2rem)] w-full max-w-4xl flex-col">
         <div className="flex flex-1 flex-col justify-center">
@@ -98,15 +89,13 @@ export default function BetterSleep() {
 
         <footer className="pb-2 pt-6 text-center">
           <div
-            className={`space-y-1 text-xs ${
-              darkMode ? "text-zinc-400" : "text-zinc-500"
-            }`}
+            className={`space-y-1 text-xs ${darkMode ? "text-zinc-400" : "text-zinc-500"}`}
           >
-            <p>Built with love {"<3"}</p>
+            <p>Built with love 🩷</p>
             <p>
               by Brandon Mai ·{" "}
               <a
-                href="https://github.com/barndonmai"
+                href="https://github.com/brandonmai"
                 target="_blank"
                 rel="noreferrer"
                 className="underline underline-offset-2 hover:opacity-80"

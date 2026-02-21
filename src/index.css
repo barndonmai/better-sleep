@@ -143,3 +143,179 @@ body {
     min-height: 100vh;
   }
 }
+@keyframes slow-twinkle {
+  0%,
+  100% {
+    opacity: 0.45;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+/* ---------- Pixel background effects (Better Sleep) ---------- */
+
+/* Crisp pixel stars using 1 element + lots of box-shadows */
+/* Crisp pixel stars using viewport-based positions */
+.pixel-stars,
+.pixel-stars-dim {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: transparent;
+  animation: stars-twinkle 5s ease-in-out infinite;
+}
+
+.pixel-stars {
+  width: 2px;
+  height: 2px;
+  box-shadow:
+    6vw 8vh #fff,
+    14vw 5vh #fff,
+    22vw 11vh #fff,
+    30vw 7vh #fff,
+    38vw 12vh #fff,
+    46vw 6vh #fff,
+    54vw 9vh #fff,
+    62vw 4vh #fff,
+    70vw 13vh #fff,
+    78vw 6vh #fff,
+    86vw 11vh #fff,
+    94vw 5vh #fff,
+    10vw 20vh #fff,
+    18vw 24vh #fff,
+    28vw 21vh #fff,
+    36vw 26vh #fff,
+    44vw 22vh #fff,
+    52vw 25vh #fff,
+    60vw 21vh #fff,
+    68vw 27vh #fff,
+    76vw 23vh #fff,
+    84vw 26vh #fff,
+    92vw 22vh #fff,
+    8vw 34vh #fff,
+    20vw 31vh #fff,
+    32vw 36vh #fff,
+    48vw 33vh #fff,
+    58vw 38vh #fff,
+    72vw 35vh #fff,
+    88vw 32vh #fff;
+  opacity: 0.9;
+}
+
+.pixel-stars-dim {
+  width: 1px;
+  height: 1px;
+  animation: stars-twinkle 7s ease-in-out infinite;
+  box-shadow:
+    3vw 6vh rgba(196, 181, 253, 0.9),
+    9vw 12vh rgba(255, 255, 255, 0.7),
+    17vw 9vh rgba(147, 197, 253, 0.8),
+    26vw 14vh rgba(255, 255, 255, 0.55),
+    34vw 3vh rgba(196, 181, 253, 0.7),
+    42vw 16vh rgba(255, 255, 255, 0.6),
+    51vw 5vh rgba(147, 197, 253, 0.7),
+    59vw 15vh rgba(255, 255, 255, 0.55),
+    68vw 10vh rgba(196, 181, 253, 0.6),
+    77vw 4vh rgba(255, 255, 255, 0.55),
+    86vw 14vh rgba(147, 197, 253, 0.65),
+    95vw 8vh rgba(255, 255, 255, 0.5),
+    6vw 22vh rgba(196, 181, 253, 0.55),
+    15vw 28vh rgba(255, 255, 255, 0.5),
+    24vw 20vh rgba(147, 197, 253, 0.55),
+    40vw 27vh rgba(255, 255, 255, 0.5),
+    57vw 24vh rgba(196, 181, 253, 0.55),
+    73vw 29vh rgba(255, 255, 255, 0.5),
+    89vw 25vh rgba(147, 197, 253, 0.55);
+  opacity: 0.7;
+}
+@keyframes stars-twinkle {
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+  50% {
+    opacity: 0.9;
+  }
+}
+
+/* Pixel crescent moon (simple block art) */
+.pixel-moon {
+  width: 6px;
+  height: 6px;
+  background: #c4b5fd;
+  box-shadow:
+    6px 0 #ddd6fe,
+    12px 0 #bfdbfe,
+    0 6px #a78bfa,
+    6px 6px #ddd6fe,
+    12px 6px #93c5fd,
+    0 12px #a78bfa,
+    6px 12px #c4b5fd,
+    12px 12px #7dd3fc,
+    6px 18px #a78bfa,
+    12px 18px #93c5fd,
+    12px 24px #7dd3fc;
+  position: relative;
+  transform: scale(2.2);
+  transform-origin: top left;
+  filter: drop-shadow(0 0 10px rgba(196, 181, 253, 0.25));
+}
+
+/* Cut-out to form crescent */
+.pixel-moon::after {
+  content: "";
+  position: absolute;
+  left: 8px;
+  top: 6px;
+  width: 10px;
+  height: 18px;
+  background: #070214; /* matches top sky */
+}
+
+@keyframes sky-sparkle-float {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 6px, 0) scale(0.9);
+  }
+  15% {
+    opacity: 0.55;
+  }
+  35% {
+    opacity: 0.85;
+    transform: translate3d(-6px, -2px, 0) scale(1);
+  }
+  55% {
+    opacity: 0.65;
+    transform: translate3d(-10px, -6px, 0) scale(1.02);
+  }
+  75% {
+    opacity: 0.35;
+    transform: translate3d(-14px, -8px, 0) scale(0.98);
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(-18px, -10px, 0) scale(0.92);
+  }
+}
+
+@keyframes glow-star-float {
+  0% {
+    opacity: 0.25;
+    transform: translate3d(0, 4px, 0) scale(0.9);
+  }
+  20% {
+    opacity: 0.65;
+  }
+  50% {
+    opacity: 1;
+    transform: translate3d(var(--drift-x), var(--drift-y), 0) scale(1.05);
+  }
+  80% {
+    opacity: 0.55;
+  }
+  100% {
+    opacity: 0.25;
+    transform: translate3d(0, 4px, 0) scale(0.92);
+  }
+}
