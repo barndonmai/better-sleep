@@ -26,7 +26,7 @@ export default function TimePill({ item, darkMode }) {
       transition={{ duration: 0.2 }}
       className={wrapperClass}
     >
-      <div className="flex items-center justify-between gap-3">
+      <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
         <div>
           <div className="text-xl font-semibold tracking-tight">{formatTime(item.time)}</div>
           <div className={subTextClass}>

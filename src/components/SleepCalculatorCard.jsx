@@ -21,7 +21,7 @@ export default function SleepCalculatorCard({
         <div className={classes.toggleWrap}>
         <Button
             variant="ghost"
-            className={`rounded-lg ${mode === "sleep" ? classes.activeToggleBtn : ""}`}
+            className={`h-10 justify-center rounded-lg ${mode === "sleep" ? classes.activeToggleBtn : ""}`}
             onClick={() => setMode("sleep")}
         >
             <BedDouble className="mr-2 h-4 w-4" />
@@ -30,7 +30,7 @@ export default function SleepCalculatorCard({
 
         <Button
             variant="ghost"
-            className={`rounded-lg ${mode === "wake" ? classes.activeToggleBtn : ""}`}
+            className={`h-10 justify-center rounded-lg ${mode === "wake" ? classes.activeToggleBtn : ""}`}
             onClick={() => setMode("wake")}
         >
             <AlarmClock className="mr-2 h-4 w-4" />
@@ -57,14 +57,18 @@ export default function SleepCalculatorCard({
           </div>
         )}
 
-        <div className="flex flex-wrap gap-2 pt-1">
         {mode === "wake" && (
-            <Button variant="outline" className={classes.outlineBtn} onClick={resetToNow}>
+        <div className="flex flex-wrap gap-2 pt-1">
+            <Button
+            variant="outline"
+            className={`h-10 w-full sm:w-auto ${classes.outlineBtn}`}
+            onClick={resetToNow}
+            >
             <RotateCcw className="mr-2 h-4 w-4" />
             Reset to now
             </Button>
-        )}
         </div>
+        )}
       </CardContent>
     </Card>
   );

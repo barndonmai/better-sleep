@@ -32,14 +32,14 @@ export default function BetterSleep() {
             Sleep Cycle Calculator
           </div>
 
-          <h1 className="text-3xl font-semibold tracking-tight md:text-4xl">Better Sleep</h1>
+          <h1 className="text-2xl font-semibold tracking-tight sm:text-3xl md:text-4xl"> Better Sleep </h1>
           <p className={classes.subtitle}>{subtitle}</p>
 
           <div className="mt-3">
             <ThemeToggle
               darkMode={darkMode}
               setDarkMode={setDarkMode}
-              className={classes.outlineBtn}
+              className={`w-full sm:w-auto ${classes.outlineBtn}`}
             />
           </div>
         </motion.div>
