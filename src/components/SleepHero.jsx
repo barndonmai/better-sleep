@@ -32,11 +32,7 @@ function to24Hour(hour12, minute, meridiem) {
 
 function TimeSelect({ value, onChange, options, className }) {
   return (
-    <select
-      value={value}
-      onChange={(e) => onChange(e.target.value)}
-      className={className}
-    >
+    <select value={value} onChange={(e) => onChange(e.target.value)} className={className}>
       {options.map((option) => (
         <option key={option} value={option} className="text-black">
           {option}
@@ -74,7 +70,7 @@ export default function SleepHero({
       <div className="space-y-4 text-center">
         <Button
           onClick={onSleepNow}
-          className="h-12 w-full rounded-xl text-base font-medium"
+          className="h-12 w-full rounded-xl text-base font-medium transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-indigo-500/20 active:translate-y-0 active:scale-[0.99]"
         >
           <BedDouble className="mr-2 h-4 w-4" />
           Sleep now
@@ -83,7 +79,7 @@ export default function SleepHero({
         <Button
           onClick={onWakeAtTime}
           variant="outline"
-          className={`h-12 w-full rounded-xl text-base font-medium ${classes.outlineBtn}`}
+          className={`h-12 w-full rounded-xl text-base font-medium transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md hover:text-inherit active:translate-y-0 active:scale-[0.99] ${classes.outlineBtn}`}
         >
           <AlarmClock className="mr-2 h-4 w-4" />
           Show bedtimes
