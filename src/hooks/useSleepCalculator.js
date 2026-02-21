@@ -4,8 +4,7 @@ import { getSleepTimesFromWake, getWakeTimesFromNow } from "@/lib/sleep";
 
 export function useSleepCalculator() {
     const [wakeTime, setWakeTime] = useState(getNowTimeString());
-    const [mode, setMode] = useState("wake"); // wake | sleep
-
+    const [mode, setMode] = useState("sleep");
     const bedTimes = useMemo(() => getSleepTimesFromWake(wakeTime), [wakeTime]);
     const wakeTimes = useMemo(() => getWakeTimesFromNow(), [mode]);
 
@@ -18,7 +17,7 @@ export function useSleepCalculator() {
 
     const resetToNow = () => {
         setWakeTime(getNowTimeString());
-        setMode("wake");
+        setMode("sleep");
     };
 
     return {

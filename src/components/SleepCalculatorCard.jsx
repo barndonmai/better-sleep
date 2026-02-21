@@ -19,23 +19,23 @@ export default function SleepCalculatorCard({
       </CardHeader>
       <CardContent className="space-y-4">
         <div className={classes.toggleWrap}>
-          <Button
-            variant="ghost"
-            className={`rounded-lg ${mode === "wake" ? classes.activeToggleBtn : ""}`}
-            onClick={() => setMode("wake")}
-          >
-            <AlarmClock className="mr-2 h-4 w-4" />
-            Wake up at
-          </Button>
-
-          <Button
+        <Button
             variant="ghost"
             className={`rounded-lg ${mode === "sleep" ? classes.activeToggleBtn : ""}`}
             onClick={() => setMode("sleep")}
-          >
+        >
             <BedDouble className="mr-2 h-4 w-4" />
             Sleep now
-          </Button>
+        </Button>
+
+        <Button
+            variant="ghost"
+            className={`rounded-lg ${mode === "wake" ? classes.activeToggleBtn : ""}`}
+            onClick={() => setMode("wake")}
+        >
+            <AlarmClock className="mr-2 h-4 w-4" />
+            Wake up at
+        </Button>
         </div>
 
         {mode === "wake" ? (
