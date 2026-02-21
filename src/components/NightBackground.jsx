@@ -1,3 +1,4 @@
+import GlowingStars from "@/components/GlowingStars";
 export default function NightBackground() {
   return (
     <>
@@ -24,10 +25,7 @@ export default function NightBackground() {
         <div className="pixel-moon" />
       </div>
 
-      {/* Floating sparkle instead of fast shooting star */}
-      <div className="pointer-events-none absolute inset-0 overflow-hidden">
-        <div className="sky-sparkle" />
-      </div>
+      <GlowingStars />
 
       {/* Horizon mist (raised) */}
       <div className="pointer-events-none absolute inset-x-0 bottom-36 h-44 bg-gradient-to-t from-indigo-400/10 to-transparent blur-2xl" />
