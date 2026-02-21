@@ -55,7 +55,13 @@ export default function SleepHero({
 }) {
   const { hour12, minute, meridiem } = parseWakeTime(wakeTime);
 
-  const selectClass = `h-12 w-full rounded-xl border px-3 text-base ${classes.input}`;
+  const controlTone =
+    "border border-indigo-200/15 bg-indigo-300/10 text-zinc-200 shadow-sm backdrop-blur-sm hover:bg-indigo-300/15";
+  const interactiveMotion =
+    "transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.99]";
+
+  const buttonClass = `h-12 w-full rounded-xl text-base font-medium ${controlTone} ${interactiveMotion}`;
+  const selectClass = `h-12 w-full rounded-xl px-3 text-base ${controlTone} focus:outline-none focus:ring-2 focus:ring-white/20`;
 
   const updateHour = (nextHour) => {
     setWakeTime(to24Hour(nextHour, minute, meridiem));
@@ -72,19 +78,12 @@ export default function SleepHero({
   return (
     <div className="mx-auto max-w-xl">
       <div className="space-y-4 text-center">
-        <Button
-          onClick={onSleepNow}
-          className="h-12 w-full rounded-xl text-base font-medium transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-indigo-500/20 active:translate-y-0 active:scale-[0.99]"
-        >
+        <Button onClick={onSleepNow} variant="ghost" className={buttonClass}>
           <BedDouble className="mr-2 h-4 w-4" />
           Sleep now
         </Button>
 
-        <Button
-          onClick={onWakeAtTime}
-          variant="outline"
-          className={`h-12 w-full rounded-xl text-base font-medium transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md hover:text-inherit active:translate-y-0 active:scale-[0.99] ${classes.outlineBtn}`}
-        >
+        <Button onClick={onWakeAtTime} variant="ghost" className={buttonClass}>
           <AlarmClock className="mr-2 h-4 w-4" />
           Show bedtimes
         </Button>
