@@ -6,9 +6,10 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "build:ghpages": "vite build --mode ghpages",
     "lint": "eslint .",
     "preview": "vite preview",
-    "predeploy": "npm run build",
+    "predeploy": "npm run build:ghpages",
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
