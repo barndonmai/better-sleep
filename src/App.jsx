@@ -124,8 +124,7 @@ export default function BetterSleep() {
               Individual sleep needs vary.
             </div>
             <div className="mt-3">
-              Built with love <span className="opacity-70">by Brandon Mai</span>{" "}
-              ·{" "}
+              Built with ♡ <span className="opacity-70">by Brandon Mai</span> ·{" "}
               <a
                 href="https://github.com/barndonmai/better-sleep"
                 className="underline underline-offset-4 hover:opacity-90"
