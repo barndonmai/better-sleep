@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import { Moon } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -28,6 +29,42 @@ export default function BetterSleep() {
     calculateFromSleepTime,
   } = useSleepCalculator();
 
+  const resultsRef = useRef(null);
+  const shouldScrollRef = useRef(false);
+
+  useEffect(() => {
+    if (!shouldScrollRef.current) return;
+    if (!hasCalculated) return;
+    if (!resultsRef.current) return;
+
+    shouldScrollRef.current = false;
+
+    // One more tick so layout settles (esp. with motion / fonts)
+    setTimeout(() => {
+      resultsRef.current?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }, 0);
+  }, [hasCalculated, resultsRenderKey]);
+
+  function queueScrollThen(fn) {
+    shouldScrollRef.current = true;
+    fn();
+  }
+
+  function handleSleepNow() {
+    queueScrollThen(calculateSleepNow);
+  }
+
+  function handleWakeAtTime() {
+    queueScrollThen(calculateFromWakeTime);
+  }
+
+  function handleSleepAtTime() {
+    queueScrollThen(calculateFromSleepTime);
+  }
+
   return (
     <div className={`${classes.page} min-h-screen flex flex-col`}>
       {darkMode && <NightBackground />}
@@ -39,7 +76,6 @@ export default function BetterSleep() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.35 }}
         >
-          {/* Main content */}
           <div className="w-full">
             <div className="flex flex-col items-center text-center">
               <div className={`${classes.pill} w-fit`}>
@@ -62,13 +98,13 @@ export default function BetterSleep() {
               setWakeTime={setWakeTime}
               sleepTime={sleepTime}
               setSleepTime={setSleepTime}
-              onSleepNow={calculateSleepNow}
-              onWakeAtTime={calculateFromWakeTime}
-              onSleepAtTime={calculateFromSleepTime}
+              onSleepNow={handleSleepNow}
+              onWakeAtTime={handleWakeAtTime}
+              onSleepAtTime={handleSleepAtTime}
             />
 
             {hasCalculated && (
-              <div className="mt-6">
+              <div ref={resultsRef} className="mt-6">
                 <SleepResultsCard
                   key={resultsRenderKey}
                   classes={classes}
@@ -82,14 +118,14 @@ export default function BetterSleep() {
             )}
           </div>
 
-          {/* Footer pinned to bottom when there's extra space */}
           <div className={`${classes.footer} mt-auto w-full text-center`}>
             <div className="mt-6">
               Note: This is a sleep cycle estimate, not medical advice.
               Individual sleep needs vary.
             </div>
             <div className="mt-3">
-              Built with ❤︎⁠ <span className="opacity-70">by Brandon Mai</span> ·{" "}
+              Built with love <span className="opacity-70">by Brandon Mai</span>{" "}
+              ·{" "}
               <a
                 href="https://github.com/barndonmai/better-sleep"
                 className="underline underline-offset-4 hover:opacity-90"
