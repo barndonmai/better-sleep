@@ -10,7 +10,6 @@ function parseTimeToDate(timeStr) {
     const now = new Date();
     const date = new Date(now);
     date.setHours(h, m, 0, 0);
-
     return date;
 }
 
@@ -19,7 +18,6 @@ export function getSleepTimesFromWake(wakeTime) {
     if (!wake) return [];
 
     const results = [];
-
     for (let cycles = 6; cycles >= 3; cycles -= 1) {
         const totalMinutes = cycles * CYCLE_MINUTES + FALL_ASLEEP_MINUTES;
         const bedtime = new Date(wake.getTime() - totalMinutes * 60 * 1000);
@@ -37,9 +35,28 @@ export function getSleepTimesFromWake(wakeTime) {
 export function getWakeTimesFromNow() {
     const now = new Date();
     const start = new Date(now.getTime() + FALL_ASLEEP_MINUTES * 60 * 1000);
-    const results = [];
 
-    // Best cycle count first (6), then down to shortest
+    const results = [];
+    for (let cycles = 6; cycles >= 1; cycles -= 1) {
+        const wakeTime = new Date(start.getTime() + cycles * CYCLE_MINUTES * 60 * 1000);
+
+        results.push({
+            time: wakeTime,
+            cycles,
+            type: "wake",
+        });
+    }
+
+    return results;
+}
+
+export function getWakeTimesFromSleepTime(sleepTime) {
+    const sleep = parseTimeToDate(sleepTime);
+    if (!sleep) return [];
+
+    const start = new Date(sleep.getTime() + FALL_ASLEEP_MINUTES * 60 * 1000);
+
+    const results = [];
     for (let cycles = 6; cycles >= 1; cycles -= 1) {
         const wakeTime = new Date(start.getTime() + cycles * CYCLE_MINUTES * 60 * 1000);
 
