@@ -115,7 +115,7 @@ function FlowEntryCard({
 }) {
   return (
     <Card className={classes.card}>
-      <CardHeader className="pb-2">
+      <CardHeader className="pb-3">
         <CardTitle className="text-base">{title}</CardTitle>
       </CardHeader>
 
@@ -123,7 +123,6 @@ function FlowEntryCard({
         <Button
           onClick={onChoose}
           className={[
-            // selector vibe: left aligned + less “big centered CTA”
             "h-12 w-full justify-start gap-2 rounded-xl px-4 text-base font-medium",
             "border border-indigo-200/15 bg-indigo-300/10 text-zinc-200 shadow-sm backdrop-blur-sm hover:bg-indigo-300/15",
             "transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.99]",
@@ -214,6 +213,29 @@ export default function SleepHero({
 
   return (
     <div className="mt-6 space-y-4">
+      {/* Sleep now moved to top */}
+      <div
+        className={`rounded-2xl border border-indigo-200/10 bg-zinc-900/50 p-4 ${classes.card}`}
+      >
+        <Button
+          onClick={onSleepNow}
+          className={[
+            "h-14 w-full rounded-2xl text-base font-semibold",
+            "bg-gradient-to-r from-indigo-400/25 via-sky-400/15 to-fuchsia-400/20",
+            "border border-indigo-200/20 text-zinc-100 shadow-lg shadow-black/20",
+            "transition-all duration-200 hover:-translate-y-0.5 hover:bg-indigo-400/20 active:translate-y-0 active:scale-[0.99]",
+          ].join(" ")}
+        >
+          <Zap className="h-4 w-4" />
+          Sleep now
+        </Button>
+
+        <div className="mt-2 text-center text-xs text-zinc-400">
+          Uses current time
+        </div>
+      </div>
+
+      {/* Entry point + expanded flow (only one picker visible at a time) */}
       <div className="grid gap-3 md:grid-cols-2">
         {activeFlow === "wake" ? (
           <FlowExpandedCard
@@ -268,32 +290,6 @@ export default function SleepHero({
             onChoose={() => setActiveFlow("sleep")}
           />
         )}
-      </div>
-
-      <div
-        className={`rounded-2xl border border-indigo-200/10 bg-zinc-900/50 p-4 ${classes.card}`}
-      >
-        <div className="mb-2 flex items-center justify-between">
-          <div className="text-xs font-medium text-zinc-300">Quick action</div>
-          <div className="text-xs text-zinc-400">Uses current time</div>
-        </div>
-
-        <Button
-          onClick={onSleepNow}
-          className={[
-            "h-14 w-full rounded-2xl text-base font-semibold",
-            "bg-gradient-to-r from-indigo-400/25 via-sky-400/15 to-fuchsia-400/20",
-            "border border-indigo-200/20 text-zinc-100 shadow-lg shadow-black/20",
-            "transition-all duration-200 hover:-translate-y-0.5 hover:bg-indigo-400/20 active:translate-y-0 active:scale-[0.99]",
-          ].join(" ")}
-        >
-          <Zap className="h-4 w-4" />
-          Sleep now
-        </Button>
-
-        <div className="mt-2 text-xs text-zinc-400">
-          Tap again to refresh your wake-up times.
-        </div>
       </div>
     </div>
   );
