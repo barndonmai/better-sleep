@@ -1,5 +1,7 @@
+import { memo } from "react";
 import GlowingStars from "@/components/GlowingStars";
-export default function NightBackground() {
+
+function NightBackground() {
   return (
     <>
       {/* Base sky gradient */}
@@ -8,27 +10,19 @@ export default function NightBackground() {
       {/* Soft glow around the content */}
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_45%,rgba(99,102,241,0.18),transparent_45%),radial-gradient(circle_at_50%_60%,rgba(56,189,248,0.10),transparent_55%)]" />
 
-      {/* Pixel stars (true squares via box-shadow) */}
+      {/* Pixel stars (viewport-based, crisp squares) */}
       <div className="pointer-events-none absolute inset-0 opacity-80">
         <div className="pixel-stars absolute left-0 top-0" />
         <div className="pixel-stars-dim absolute left-0 top-0" />
-
-        <div className="pixel-stars absolute left-[38%] top-[6%] opacity-70 scale-90" />
-        <div className="pixel-stars-dim absolute left-[42%] top-[10%] opacity-60 scale-90" />
-
-        <div className="pixel-stars absolute left-[70%] top-[2%] opacity-65 scale-75" />
-        <div className="pixel-stars-dim absolute left-[74%] top-[8%] opacity-55 scale-75" />
       </div>
 
-      {/* Pixel crescent moon */}
-      <div className="pointer-events-none absolute left-[4%] top-[4%] opacity-90 sm:left-[8%] sm:top-[8%]">
-        <div className="pixel-moon scale-75 sm:scale-100 origin-top-left" />
-      </div>
-
+      {/* Animated glowing stars */}
       <GlowingStars />
 
-      {/* Horizon mist (raised) */}
-      <div className="pointer-events-none absolute inset-x-0 bottom-36 h-44 bg-gradient-to-t from-indigo-400/10 to-transparent blur-2xl" />
+      {/* Pixel crescent moon (mobile-safe positioning) */}
+      <div className="pointer-events-none absolute left-[2%] top-[2%] opacity-90 sm:left-[8%] sm:top-[8%]">
+        <div className="pixel-moon origin-top-left scale-60 sm:scale-100" />
+      </div>
 
       {/* Horizon mist (raised) */}
       <div className="pointer-events-none absolute inset-x-0 bottom-44 h-52 bg-gradient-to-t from-indigo-400/10 to-transparent blur-2xl" />
@@ -63,3 +57,5 @@ export default function NightBackground() {
     </>
   );
 }
+
+export default memo(NightBackground);
