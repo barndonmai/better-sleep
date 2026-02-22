@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" shape-rendering="crispEdges">
+  <rect width="64" height="64" rx="12" fill="#0b1020"/>
+
+  <!-- tiny stars -->
+  <rect x="10" y="12" width="2" height="2" fill="#ffffff" opacity="0.9"/>
+  <rect x="50" y="14" width="2" height="2" fill="#ffffff" opacity="0.8"/>
+  <rect x="14" y="46" width="2" height="2" fill="#ffffff" opacity="0.7"/>
+  <rect x="46" y="48" width="2" height="2" fill="#ffffff" opacity="0.8"/>
+
+  <!-- moon shadow outline -->
+  <rect x="20" y="16" width="4" height="4" fill="#1f2a44"/>
+  <rect x="24" y="16" width="4" height="4" fill="#1f2a44"/>
+  <rect x="28" y="16" width="4" height="4" fill="#1f2a44"/>
+  <rect x="32" y="16" width="4" height="4" fill="#1f2a44"/>
+
+  <rect x="16" y="20" width="4" height="4" fill="#1f2a44"/>
+  <rect x="20" y="20" width="4" height="4" fill="#1f2a44"/>
+  <rect x="24" y="20" width="4" height="4" fill="#1f2a44"/>
+  <rect x="28" y="20" width="4" height="4" fill="#1f2a44"/>
+  <rect x="32" y="20" width="4" height="4" fill="#1f2a44"/>
+  <rect x="36" y="20" width="4" height="4" fill="#1f2a44"/>
+
+  <rect x="16" y="24" width="4" height="4" fill="#1f2a44"/>
+  <rect x="20" y="24" width="4" height="4" fill="#1f2a44"/>
+  <rect x="24" y="24" width="4" height="4" fill="#1f2a44"/>
+  <rect x="28" y="24" width="4" height="4" fill="#1f2a44"/>
+  <rect x="32" y="24" width="4" height="4" fill="#1f2a44"/>
+  <rect x="36" y="24" width="4" height="4" fill="#1f2a44"/>
+
+  <rect x="16" y="28" width="4" height="4" fill="#1f2a44"/>
+  <rect x="20" y="28" width="4" height="4" fill="#1f2a44"/>
+  <rect x="24" y="28" width="4" height="4" fill="#1f2a44"/>
+  <rect x="28" y="28" width="4" height="4" fill="#1f2a44"/>
+  <rect x="32" y="28" width="4" height="4" fill="#1f2a44"/>
+  <rect x="36" y="28" width="4" height="4" fill="#1f2a44"/>
+
+  <rect x="16" y="32" width="4" height="4" fill="#1f2a44"/>
+  <rect x="20" y="32" width="4" height="4" fill="#1f2a44"/>
+  <rect x="24" y="32" width="4" height="4" fill="#1f2a44"/>
+  <rect x="28" y="32" width="4" height="4" fill="#1f2a44"/>
+  <rect x="32" y="32" width="4" height="4" fill="#1f2a44"/>
+  <rect x="36" y="32" width="4" height="4" fill="#1f2a44"/>
+
+  <rect x="20" y="36" width="4" height="4" fill="#1f2a44"/>
+  <rect x="24" y="36" width="4" height="4" fill="#1f2a44"/>
+  <rect x="28" y="36" width="4" height="4" fill="#1f2a44"/>
+  <rect x="32" y="36" width="4" height="4" fill="#1f2a44"/>
+  <rect x="36" y="36" width="4" height="4" fill="#1f2a44"/>
+
+  <rect x="24" y="40" width="4" height="4" fill="#1f2a44"/>
+  <rect x="28" y="40" width="4" height="4" fill="#1f2a44"/>
+  <rect x="32" y="40" width="4" height="4" fill="#1f2a44"/>
+
+  <!-- moon body -->
+  <rect x="20" y="16" width="4" height="4" fill="#a78bfa"/>
+  <rect x="24" y="16" width="4" height="4" fill="#c4b5fd"/>
+  <rect x="28" y="16" width="4" height="4" fill="#c4b5fd"/>
+  <rect x="32" y="16" width="4" height="4" fill="#93c5fd"/>
+
+  <rect x="16" y="20" width="4" height="4" fill="#a78bfa"/>
+  <rect x="20" y="20" width="4" height="4" fill="#c4b5fd"/>
+  <rect x="24" y="20" width="4" height="4" fill="#ddd6fe"/>
+  <rect x="28" y="20" width="4" height="4" fill="#ddd6fe"/>
+  <rect x="32" y="20" width="4" height="4" fill="#bfdbfe"/>
+  <rect x="36" y="20" width="4" height="4" fill="#93c5fd"/>
+
+  <rect x="16" y="24" width="4" height="4" fill="#a78bfa"/>
+  <rect x="20" y="24" width="4" height="4" fill="#c4b5fd"/>
+  <rect x="24" y="24" width="4" height="4" fill="#ddd6fe"/>
+  <rect x="28" y="24" width="4" height="4" fill="#ddd6fe"/>
+  <rect x="32" y="24" width="4" height="4" fill="#bfdbfe"/>
+  <rect x="36" y="24" width="4" height="4" fill="#93c5fd"/>
+
+  <rect x="16" y="28" width="4" height="4" fill="#a78bfa"/>
+  <rect x="20" y="28" width="4" height="4" fill="#c4b5fd"/>
+  <rect x="24" y="28" width="4" height="4" fill="#ddd6fe"/>
+  <rect x="28" y="28" width="4" height="4" fill="#c4b5fd"/>
+  <rect x="32" y="28" width="4" height="4" fill="#bfdbfe"/>
+  <rect x="36" y="28" width="4" height="4" fill="#93c5fd"/>
+
+  <rect x="16" y="32" width="4" height="4" fill="#a78bfa"/>
+  <rect x="20" y="32" width="4" height="4" fill="#c4b5fd"/>
+  <rect x="24" y="32" width="4" height="4" fill="#c4b5fd"/>
+  <rect x="28" y="32" width="4" height="4" fill="#bfdbfe"/>
+  <rect x="32" y="32" width="4" height="4" fill="#93c5fd"/>
+  <rect x="36" y="32" width="4" height="4" fill="#7dd3fc"/>
+
+  <rect x="20" y="36" width="4" height="4" fill="#a78bfa"/>
+  <rect x="24" y="36" width="4" height="4" fill="#c4b5fd"/>
+  <rect x="28" y="36" width="4" height="4" fill="#bfdbfe"/>
+  <rect x="32" y="36" width="4" height="4" fill="#93c5fd"/>
+  <rect x="36" y="36" width="4" height="4" fill="#7dd3fc"/>
+
+  <rect x="24" y="40" width="4" height="4" fill="#a78bfa"/>
+  <rect x="28" y="40" width="4" height="4" fill="#93c5fd"/>
+  <rect x="32" y="40" width="4" height="4" fill="#7dd3fc"/>
+
+  <!-- crescent cutout -->
+  <rect x="28" y="20" width="4" height="4" fill="#0b1020"/>
+  <rect x="32" y="20" width="4" height="4" fill="#0b1020"/>
+  <rect x="28" y="24" width="4" height="4" fill="#0b1020"/>
+  <rect x="32" y="24" width="4" height="4" fill="#0b1020"/>
+  <rect x="28" y="28" width="4" height="4" fill="#0b1020"/>
+  <rect x="32" y="28" width="4" height="4" fill="#0b1020"/>
+  <rect x="32" y="32" width="4" height="4" fill="#0b1020"/>
+
+  <!-- tiny cheek sparkle -->
+  <rect x="42" y="28" width="2" height="2" fill="#f9a8d4"/>
+</svg>
