@@ -21,8 +21,8 @@ export default function NightBackground() {
       </div>
 
       {/* Pixel crescent moon */}
-      <div className="pointer-events-none absolute left-[10%] top-[10%] opacity-90">
-        <div className="pixel-moon" />
+      <div className="pointer-events-none absolute left-[4%] top-[4%] opacity-90 sm:left-[8%] sm:top-[8%]">
+        <div className="pixel-moon scale-75 sm:scale-100 origin-top-left" />
       </div>
 
       <GlowingStars />
