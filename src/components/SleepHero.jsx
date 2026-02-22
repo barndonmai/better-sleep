@@ -2,7 +2,9 @@ import { BedDouble, AlarmClock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const hours = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"];
-const minutes = ["00", "15", "30", "45"];
+const minutes = Array.from({ length: 12 }, (_, i) =>
+  String(i * 5).padStart(2, "0"),
+);
 const meridiems = ["AM", "PM"];
 
 function parseWakeTime(wakeTime) {
