@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useId, useState } from "react";
 import { AlarmClock, BedDouble, Zap } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -37,27 +37,34 @@ function to24Hour(hour12, minute, meridiem) {
   return `${String(hour).padStart(2, "0")}:${String(minute).padStart(2, "0")}`;
 }
 
-function TimeSelect({ value, onChange, options, className }) {
+function TimeSelect({ id, label, value, onChange, options, className }) {
   return (
-    <select
-      value={value}
-      onChange={(e) => onChange(e.target.value)}
-      className={className}
-    >
-      {options.map((option) => (
-        <option
-          key={option}
-          value={option}
-          className="bg-zinc-950 text-zinc-100"
-        >
-          {option}
-        </option>
-      ))}
-    </select>
+    <div>
+      <label htmlFor={id} className="sr-only">
+        {label}
+      </label>
+      <select
+        id={id}
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+        className={className}
+      >
+        {options.map((option) => (
+          <option
+            key={option}
+            value={option}
+            className="bg-zinc-950 text-zinc-100"
+          >
+            {option}
+          </option>
+        ))}
+      </select>
+    </div>
   );
 }
 
 function TimePickerRow({ label, icon: Icon, value, onChangeTime }) {
+  const baseId = useId();
   const { hour12, minute, meridiem } = parseTime(value);
 
   const controlTone =
@@ -82,18 +89,24 @@ function TimePickerRow({ label, icon: Icon, value, onChangeTime }) {
 
       <div className="grid grid-cols-3 gap-2">
         <TimeSelect
+          id={`${baseId}-hour`}
+          label={`${label} hour`}
           value={hour12}
           onChange={updateHour}
           options={hours}
           className={selectClass}
         />
         <TimeSelect
+          id={`${baseId}-minute`}
+          label={`${label} minute`}
           value={minute}
           onChange={updateMinute}
           options={minutes}
           className={selectClass}
         />
         <TimeSelect
+          id={`${baseId}-meridiem`}
+          label={`${label} AM or PM`}
           value={meridiem}
           onChange={updateMeridiem}
           options={meridiems}

@@ -70,7 +70,7 @@ export default function MaiSleep() {
       {darkMode && <NightBackground />}
 
       <div className="relative mx-auto w-full max-w-3xl flex flex-col flex-1">
-        <motion.div
+        <motion.main
           className="flex flex-col flex-1"
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
@@ -118,7 +118,7 @@ export default function MaiSleep() {
             )}
           </div>
 
-          <div className={`${classes.footer} mt-auto w-full text-center`}>
+          <footer className={`${classes.footer} mt-auto w-full text-center`}>
             <div className="mt-6">
               Note: This is a sleep cycle estimate, not medical advice.
               Individual sleep needs vary.
@@ -132,8 +132,8 @@ export default function MaiSleep() {
                 GitHub
               </a>
             </div>
-          </div>
-        </motion.div>
+          </footer>
+        </motion.main>
       </div>
     </div>
   );
